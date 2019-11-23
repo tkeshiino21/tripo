@@ -1,7 +1,8 @@
 import React from "react";
+import { Text } from "grommet";
 
 const Footer = () => {
-  return <small>created by Takeshi INoue</small>;
+  return <Text size={12}>created by Takeshi INoue</Text>;
 };
 
 export default Footer;

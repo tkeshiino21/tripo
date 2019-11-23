@@ -1,14 +1,18 @@
 import React from "react";
-import { Heading } from "grommet";
+import { Heading, Text } from "grommet";
 import Layout from "./layout/Layout";
 import ResponsiveGrid from "./layout/Responsive";
+import DesktopHeader from "./layout/DesktopHeader";
+import MainContainer from "./layout/MainContainer";
 
 const Home = () => {
   return (
     <div>
-      <Layout />
       {/* <ResponsiveGrid /> */}
-      <h5>contents here</h5>
+      {/* <DesktopHeader /> */}
+      <Layout>
+        <Text>contents here</Text>
+      </Layout>
     </div>
   );
 };
