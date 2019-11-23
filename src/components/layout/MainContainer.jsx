@@ -1,23 +1,55 @@
-import React, { Component } from "react";
-import { Box, Button, Heading, Select } from "grommet";
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  Heading,
+  Select,
+  ResponsiveContext,
+  Text,
+  Collapsible,
+} from "grommet";
 import { Notification, Article } from "grommet-icons";
 import MobileHeader from "./MobileHeader";
 
-const MainContainer = ({ children }) => {
+const MainContainer = ({ children, ...rest }) => {
+  const options = ["Romance", "SienceFiction", "Art"];
+  const [value, setValue] = useState("");
   return (
-    <Box>
-      <Box direction="row">
-        <Heading level={2} color="primary" margin="20px">
-          My App
-        </Heading>
-        <Select opitions={["Romance", "SienceFiction", "Art"]} />
-        <Button icon={<Notification />} />
-      </Box>
+    <ResponsiveContext.Consumer>
+      {size => (
+        <Box width="700px" height="80vh" justify="stretch" direction="column">
+          <Button icon={<Notification />} />
+          {size === "small" && (
+            <Collapsible direction="horizontal" open={true}>
+              <Collapsible open={true}>
+                <Text>LELLO PORTO</Text>
+              </Collapsible>
+            </Collapsible>
+          )}
+          <Box direction="row" justify="stretch">
+            <Box
+              direction="column"
+              justify="stretch"
+              alignSelf="stretch"
+              width="700px">
+              <Select
+                id="select"
+                name="select"
+                placeholder="Select"
+                opitions={options}
+                value="select"
+                alignSelf="stretch"
+              />
+            </Box>
+            {/* Title shows screen size is less than 768px */}
+          </Box>
 
-      <Box align="center" justify="center">
-        {children}
-      </Box>
-    </Box>
+          <Box justify="stretch" round="xsmall" margin={{ top: "medium" }}>
+            {children}
+          </Box>
+        </Box>
+      )}
+    </ResponsiveContext.Consumer>
   );
 };
 

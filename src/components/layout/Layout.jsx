@@ -7,8 +7,7 @@ import DesktopHeader from "./DesktopHeader";
 const Layout = ({ children }) => {
   return (
     <Box>
-      <Box direction="row">
-        {/* //DesktopHeader is hidden when screen is small} */}
+      <Box direction="row" justify="stretch">
         <DesktopHeader />
         <MainContainer>{children}</MainContainer>
       </Box>

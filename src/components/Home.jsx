@@ -1,9 +1,7 @@
 import React from "react";
 import { Heading, Text } from "grommet";
 import Layout from "./layout/Layout";
-import ResponsiveGrid from "./layout/Responsive";
-import DesktopHeader from "./layout/DesktopHeader";
-import MainContainer from "./layout/MainContainer";
+import BookList from "./layout/BookList";
 
 const Home = () => {
   return (
@@ -12,6 +10,7 @@ const Home = () => {
       {/* <DesktopHeader /> */}
       <Layout>
         <Text>contents here</Text>
+        <BookList />
       </Layout>
     </div>
   );
