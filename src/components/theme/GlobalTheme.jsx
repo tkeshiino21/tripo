@@ -4,8 +4,9 @@ import { rgba } from "polished";
 export const theme = {
   global: {
     colors: {
-      "light-2": "#f5f5f5",
+      light: "#f5f5f5",
       primary: "#e2d1c3",
+      brand: "#4d4b4a",
       text: {
         light: "rgba(0, 0, 0, 0.87)",
       },

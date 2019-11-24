@@ -9,7 +9,7 @@ const Home = () => {
       {/* <ResponsiveGrid /> */}
       {/* <DesktopHeader /> */}
       <Layout>
-        <Text>contents here</Text>
+        <Text>私の愛した本</Text>
         <BookList />
       </Layout>
     </div>

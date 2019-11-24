@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "release": "letro-porto",
+    "develop": "letro-porto"
+  }
+}

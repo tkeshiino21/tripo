@@ -9,21 +9,25 @@ const DesktopHeader = () => {
         <Box>
           {size !== "small" && (
             <Collapsible direction="horizontal" open={true}>
-              <Box margin={{ right: "xlarge" }}>
+              <Box
+                background={{ color: "brand" }}
+                margin={{ left: "medium", right: "large", top: "250px" }}>
                 <Text color="primary">本の</Text>
                 <Text color="primary">記憶</Text>
                 <Heading
                   color="primary"
                   level={1}
                   size="90px"
+                  style={{ fontWeight: "300", letterSpacing: "6px" }}
                   margin={{ vertical: "none" }}>
-                  LELLO
+                  LETRO
                 </Heading>
 
                 <Heading
                   color="primary"
                   level={1}
                   size="90px"
+                  style={{ fontWeight: "300", letterSpacing: "6px" }}
                   margin={{ vertical: "none" }}>
                   PORTO
                 </Heading>

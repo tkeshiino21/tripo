@@ -1,22 +1,24 @@
 import React from "react";
-import { Heading, Box } from "grommet";
+import { Text, ResponsiveContext, Collapsible, Box, Button } from "grommet";
+import { Notification } from "grommet-icons";
 
-const DesktopHeader = () => {
+const MobileHeader = () => {
   return (
-    <Box>
-      <Heading
-        color="dark-1"
-        level={1}
-        size="12px"
-        margin={{ top: "-10px" }}
-        responsive={true}>
-        LELLO
-      </Heading>
-      <Heading color="dark-1" level="1" size="98px">
-        PORTO
-      </Heading>
-    </Box>
+    <ResponsiveContext.Consumer>
+      {size => (
+        <Box width="700px" height="80vh" justify="stretch" direction="column">
+          <Button icon={<Notification />} />
+          {size === "small" && (
+            <Collapsible direction="horizontal" open={true}>
+              <Collapsible open={true}>
+                <Text>LELLO PORTO</Text>
+              </Collapsible>
+            </Collapsible>
+          )}
+        </Box>
+      )}
+    </ResponsiveContext.Consumer>
   );
 };
 
-export default DesktopHeader;
+export default MobileHeader;
