@@ -1,23 +1,34 @@
-import React from "react";
-import { Text, ResponsiveContext, Collapsible, Box, Button } from "grommet";
-import { Notification } from "grommet-icons";
+import React, { useState } from "react";
+import { Heading, Box, Button } from "grommet";
+import { Magic, Github } from "grommet-icons";
 
 const MobileHeader = () => {
+  const [state, setState] = useState({ isLightTheme: true });
   return (
-    <ResponsiveContext.Consumer>
-      {size => (
-        <Box width="700px" height="80vh" justify="stretch" direction="column">
-          <Button icon={<Notification />} />
-          {size === "small" && (
-            <Collapsible direction="horizontal" open={true}>
-              <Collapsible open={true}>
-                <Text>LELLO PORTO</Text>
-              </Collapsible>
-            </Collapsible>
-          )}
-        </Box>
-      )}
-    </ResponsiveContext.Consumer>
+    <Box width="700px" wrap="reverse">
+      <Box direction="row">
+        <Button
+          icon={<Magic />}
+          onClick={() => setState({ isLightTheme: !state.isLightTheme })}
+        />
+
+        <Button icon={<Github />} />
+      </Box>
+      <Box
+        direction="column"
+        flex="grow"
+        background={state.isLightTheme ? "#E3D3C4" : "brand"}
+        elevation="medium"
+        justify="center">
+        <Heading
+          level={3}
+          size="22px"
+          color={state.isLightTheme ? "brand" : "primary"}
+          margin="small">
+          Letro Porto
+        </Heading>
+      </Box>
+    </Box>
   );
 };
 

@@ -1,21 +1,29 @@
-import React from "react";
+// import React from "react";
+// import { bookDatas } from "./bookData";
+// import { Text } from "grommet";
+// import Fab from "./Fab";
 
-const BookList = () => {
-  const bookData = {
-    title: "Hello",
-    author: "HelloMan",
-    date: "today",
-    note: "what a good book!",
-  };
+// const favoriteDatas = bookDatas.filter(bookData => bookData.favorite === true);
+// const categorizedDatas = bookDatas.filter(
+//   bookData => bookData.category === { value }
+// );
 
-  return (
-    <div>
-      <li>{bookData.title}</li>
-      <li>{bookData.author}</li>
-      <li>{bookData.date}</li>
-      <li>{bookData.note}</li>
-    </div>
-  );
-};
+// const BookList = () => {
+//   return (
+//     <div>
+//       {favoriteDatas.map(favoriteData => {
+//         return (
+//           <li key={favoriteData.id}>
+//             <Text>{favoriteData.title}</Text>
+//             <Text color="dark-4" size="12px" margin={{ left: "small" }}>
+//               / {favoriteData.author}
+//             </Text>
+//           </li>
+//         );
+//       })}
+//       <Fab />
+//     </div>
+//   );
+// };
 
-export default BookList;
+// export default BookList;

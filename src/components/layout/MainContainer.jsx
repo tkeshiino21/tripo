@@ -1,48 +1,57 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  Heading,
-  Select,
-  ResponsiveContext,
-  Text,
-  Collapsible,
-} from "grommet";
-import { Notification, Article } from "grommet-icons";
-import MobileHeader from "./MobileHeader";
+import { Box, Select, Text } from "grommet";
+import { Card } from "./Card";
+import { bookDatas } from "./bookData";
+import Fab from "./Fab";
 
 const MainContainer = ({ children, ...rest }) => {
-  const options = ["Romance", "SienceFiction", "Art"];
-  const [value, setValue] = useState("");
+  const options = ["Romance", "SienceFiction", "Art", "Favorite10"];
+  const [value, setValue] = useState("Favorite10");
+  const CategorizedDatas = ({ value }) => {
+    if (value === "Favorite10") {
+      return bookDatas
+        .filter(bookData => bookData.favorite === true)
+        .map(categorizedData => {
+          return (
+            <li key={categorizedData.id}>
+              <Text>{categorizedData.title}</Text>
+              <Text color="dark-4" size="12px" margin={{ left: "small" }}>
+                / {categorizedData.author}{" "}
+              </Text>
+            </li>
+          );
+        });
+    } else {
+      return bookDatas
+        .filter(bookData => bookData.category === value)
+        .map(categorizedData => {
+          return (
+            <li key={categorizedData.id}>
+              <Text>{categorizedData.title}</Text>
+              <Text color="dark-4" size="12px" margin={{ left: "small" }}>
+                / {categorizedData.author}{" "}
+              </Text>
+            </li>
+          );
+        });
+    }
+  };
   return (
-    <ResponsiveContext.Consumer>
-      {size => (
-        <Box width="700px" height="80vh" justify="stretch" direction="column">
-          <MobileHeader />
-          <Box direction="row" justify="stretch">
-            <Box
-              direction="column"
-              justify="stretch"
-              alignSelf="stretch"
-              width="700px">
-              <Select
-                id="select"
-                name="select"
-                placeholder="Select"
-                opitions={options}
-                value="select"
-                alignSelf="stretch"
-              />
-            </Box>
-            {/* Title shows screen size is less than 768px */}
-          </Box>
-
-          <Box justify="stretch" round="xsmall" margin={{ top: "medium" }}>
-            {children}
-          </Box>
-        </Box>
-      )}
-    </ResponsiveContext.Consumer>
+    <Card>
+      <Box direction="column" justify="end">
+        <Select
+          placeholder="Select"
+          options={options}
+          value={value}
+          justify="evenly"
+          onChange={({ option }) => setValue(option)}
+          alignSelf="stretch"
+        />
+        <Box margin={{ top: "medium" }}>{children}</Box>
+        <CategorizedDatas value={value} />
+      </Box>
+      <Fab />
+    </Card>
   );
 };
 

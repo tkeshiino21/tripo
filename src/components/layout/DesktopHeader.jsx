@@ -6,35 +6,40 @@ const DesktopHeader = () => {
     // DesktopHeader is hidden when screen is small
     <ResponsiveContext.Consumer>
       {size => (
-        <Box>
+        <div>
           {size !== "small" && (
-            <Collapsible direction="horizontal" open={true}>
+            <Collapsible open={true}>
               <Box
                 background={{ color: "brand" }}
-                margin={{ left: "medium", right: "large", top: "250px" }}>
-                <Text color="primary">本の</Text>
-                <Text color="primary">記憶</Text>
+                margin={{ left: "medium", right: "small", top: "20px" }}>
+                <Text>
+                  本の
+                  <br />
+                  記憶
+                </Text>
                 <Heading
                   color="primary"
                   level={1}
                   size="90px"
-                  style={{ fontWeight: "300", letterSpacing: "6px" }}
-                  margin={{ vertical: "none" }}>
+                  style={{
+                    fontWeight: "300",
+                    letterSpacing: "4px",
+                    lineHeight: "106px",
+                  }}
+                  margin={{
+                    top: "4px",
+                    bottom: "40px",
+                    left: "15px",
+                    right: "8px",
+                  }}>
                   LETRO
-                </Heading>
-
-                <Heading
-                  color="primary"
-                  level={1}
-                  size="90px"
-                  style={{ fontWeight: "300", letterSpacing: "6px" }}
-                  margin={{ vertical: "none" }}>
+                  <br />
                   PORTO
                 </Heading>
               </Box>
             </Collapsible>
           )}
-        </Box>
+        </div>
       )}
     </ResponsiveContext.Consumer>
   );
