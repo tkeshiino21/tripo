@@ -11,9 +11,9 @@ export const Card = props => {
       // height="70vh"
       pad={{ vertical: "medium", horizontal: "large" }}
       elevation="medium"
-      style={{ zIndex: "1", height: "70vh" }}
+      flex="true"
+      style={{ zIndex: "1", height: "auto" }}
       direction="column"
-      border
       {...props}
     />
   );

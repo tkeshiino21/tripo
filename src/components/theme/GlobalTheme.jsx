@@ -12,6 +12,7 @@ export const theme = {
         dark: "#e2d1c3",
       },
     },
+    padding: 0,
     edgeSize: {
       small: "14px",
     },

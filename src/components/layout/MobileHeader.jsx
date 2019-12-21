@@ -5,7 +5,7 @@ import { Magic, Github } from "grommet-icons";
 const MobileHeader = () => {
   const [state, setState] = useState({ isLightTheme: true });
   return (
-    <Box width="700px" wrap="reverse">
+    <Box width="700px" wrap="true" direction="row">
       <Box direction="row">
         <Button
           icon={<Magic />}
@@ -17,6 +17,7 @@ const MobileHeader = () => {
       <Box
         direction="column"
         flex="grow"
+        width="100%"
         background={state.isLightTheme ? "#E3D3C4" : "brand"}
         elevation="medium"
         justify="center">

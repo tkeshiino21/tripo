@@ -7,6 +7,7 @@ import Fab from "./Fab";
 const MainContainer = ({ children, ...rest }) => {
   const options = ["Romance", "SienceFiction", "Art", "Favorite10"];
   const [value, setValue] = useState("Favorite10");
+  const handleChange = (e) => setValue(e.target.value)
   const CategorizedDatas = ({ value }) => {
     if (value === "Favorite10") {
       return bookDatas
@@ -38,13 +39,13 @@ const MainContainer = ({ children, ...rest }) => {
   };
   return (
     <Card>
-      <Box direction="column" justify="end">
+      <Box direction="column">
         <Select
           placeholder="Select"
           options={options}
           value={value}
           justify="evenly"
-          onChange={({ option }) => setValue(option)}
+          onChange={handleChange}
           alignSelf="stretch"
         />
         <Box margin={{ top: "medium" }}>{children}</Box>
